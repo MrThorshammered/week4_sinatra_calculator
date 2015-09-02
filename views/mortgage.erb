@@ -1,6 +1,14 @@
 <h1><%= @title %></h1>
 
-<form action="/navigate" method="post">
-	<input type="text" name="destination" autofocus>
-	<button>Calculate!</button>
+<h2>This calculator can calculate your mortgage repayments</h2>
+
+<form action='/mortgage' method="post">
+	<p>Principal Amount</p><input type="text" name="principal" autofocus>
+
+	<p>Interest rate</p><input type="text" name="interest" autofocus>
+
+	<p>Number of payments</p><input type="text" name="months" autofocus>
+	<button type="submit">Calculate!</button>
 </form>
+
+<h3>Montly repayments of £<%= @mortgage %></h3>

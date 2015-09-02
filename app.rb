@@ -75,3 +75,24 @@ post '/calculateadvanced' do
 	erb :advanced
 end
 
+post '/bmi' do
+		# binding.pry
+
+	answer = ((params[:weight].to_i / params[:height].to_f)/params[:height].to_f)
+	puts answer
+	@bmi = answer.round
+	erb :bmi
+end
+
+post '/mortgage' do
+		# binding.pry
+		interest = ((params[:interest].to_f / 100)/12)
+		principal = params[:principal].to_f
+		months = params[:months].to_i
+
+	answer = principal * (interest*(1+interest)/(1 + interest))
+	puts answer
+	@mortgage = answer.round
+	erb :mortgage
+end
+

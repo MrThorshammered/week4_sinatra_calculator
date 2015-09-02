@@ -1,6 +1,12 @@
 <h1><%= @title %></h1>
 
-<form action="/navigate" method="post">
-	<input type="text" name="destination" autofocus>
-	<button>Calculate!</button>
+<h2>This calculator can calculate your BMI</h2>
+
+<form action='/bmi' method="post">
+	<p>weight in kg</p><input type="text" name="weight" autofocus>
+
+	<p>height in m</p><input type="text" name="height" autofocus>
+	<button type="submit">Calculate!</button>
 </form>
+
+<h3><%= @bmi %></h3>
