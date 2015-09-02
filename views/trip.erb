@@ -1,6 +1,15 @@
 <h1><%= @title %></h1>
 
-<form action="/navigate" method="post">
-	<input type="text" name="destination" autofocus>
-	<button>Calculate!</button>
+<h2>This calculator can calculate your journey cost</h2>
+
+<form action='/trip' method="post">
+	<p>MPG</p><input type="text" name="mpg" autofocus>
+
+	<p>Distance</p><input type="text" name="distance" autofocus>
+
+	<p>Speed</p><input type="text" name="speed" autofocus>
+	<p>Fuel cost</p><input type="text" name="fuel" autofocus>
+	<button type="submit">Calculate!</button>
 </form>
+
+<h3>Your journey will take<%= @tripTime %> and cost £<%= @tripCost%></h3>

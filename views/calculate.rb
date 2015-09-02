@@ -2,11 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pry'
 
-get '/simple' do
-	@title = simple
-	erb :simple
 
-end
 
 post '/calculate' do
 
