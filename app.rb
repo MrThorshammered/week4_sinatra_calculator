@@ -39,4 +39,9 @@ get '/trip' do
 	erb :trip
 end
 
+get '/mortgage' do
+	@title = 'Mortgage'
+	erb :mortgage
+end
+
 
