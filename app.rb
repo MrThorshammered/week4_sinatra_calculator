@@ -97,21 +97,21 @@ post '/mortgage' do
 end
 
 post '/trip' do
-		# binding.pry
+		
 		mpg = params[:mpg].to_i
 		speed = params[:speed].to_i
 		distance = params[:distance].to_i
 		fuel = params[:fuel].to_i
-		time = distance / speed
 
-		actual_time = ((time*100).round)/100
-		actual_mpg = (mpg>60)? Math.max(0, mpg-(speed-60)*2):mpg
-		cost = (distance / actual_mpg * cost)
+		time = distance / speed.to_f
+# binding.pry
+		actual_time = (time*100).round/100.to_f
+		# actual_mpg = (mpg>60) ? Math.max(0, mpg-(speed-60)*2)
+		cost = (distance / mpg * fuel).to_f
+		actual_cost = (cost * 100) / 100.round
 
-
-	answer = principal * (interest*(1+interest)/(1 + interest))
-	puts answer
-	@trip = answer.round
+	@tripTime = actual_time
+	@tripCost = actual_cost
 	erb :trip
 end
 
