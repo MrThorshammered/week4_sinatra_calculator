@@ -2,7 +2,15 @@
 
 <h2>This calculator can calculate with +, -, *, / </h2>
 
-<form method="post">
-	<input type="text" name="destination" autofocus>
-	<button>Calculate!</button>
+
+<form action='/calculate' method="post">
+	<input type="text" name="num_one" autofocus>
+
+	<input type="text" name="operation" autofocus>
+
+	<input type="text" name="num_two" autofocus>
+	<button type="submit">Calculate!</button>
 </form>
+
+<h3><%= @answer %></h3>
+

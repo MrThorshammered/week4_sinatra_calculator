@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pry'
+
 get '/' do
 	@title = 'Home'
 	erb :home
@@ -44,4 +45,33 @@ get '/mortgage' do
 	erb :mortgage
 end
 
+post '/calculate' do
+		# binding.pry
+
+	case params[:operation]
+		when "+" then answer = params[:num_one].to_i + params[:num_two].to_i 
+		when "-" then answer = params[:num_one].to_i - params[:num_two].to_i 
+		when "*" then answer = params[:num_one].to_i * params[:num_two].to_i 
+		when "/" then answer = params[:num_one].to_i / params[:num_two].to_i 
+	else 
+		@error = 'Invalid calculator selected'
+	end
+	puts answer
+	@answer = answer
+	erb :simple
+end
+
+post '/calculateadvanced' do
+		# binding.pry
+
+	case params[:operation]
+		when "square root" then answer = Math.sqrt(params[:num_one].to_i)
+		when "power" then answer = params[:num_one].to_i ** params[:num_two].to_i 
+	else 
+		@error = 'Invalid calculator selected'
+	end
+	puts answer
+	@advanced = answer
+	erb :advanced
+end
 
