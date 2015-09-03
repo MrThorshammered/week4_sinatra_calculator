@@ -104,10 +104,11 @@ post '/trip' do
 		fuel = params[:fuel].to_i
 
 		time = distance / speed.to_f
-# binding.pry
+binding.pry
 		actual_time = (time*100).round/100.to_f
-		# actual_mpg = (mpg>60) ? Math.max(0, mpg-(speed-60)*2)
-		cost = (distance / mpg * fuel).to_f
+		# actual_mpg = (speed > 60) ? (mpg-speed)*2.to_f | mpg
+		
+		cost = (distance / actual_mpg * fuel).to_f
 		actual_cost = (cost * 100) / 100.round
 
 	@tripTime = actual_time
